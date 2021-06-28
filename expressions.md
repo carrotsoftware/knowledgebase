@@ -2,10 +2,6 @@
 
 В этом разделе представлены часто используемые выражения при подготовке шаблонов для **Carrot Engine** в **Adobe After Effects**.
 
-> **Примечание:** Вспомогательные переменные в выражениях можно привязать к значениям **элементов управления выражений** **(Expression Controls)**. 
->
-> Эти элементы управления можно вывести в **Carrot Template Preview** в качестве новой переменной и редактировать её через **Carrot Web Playlist** без необходимости реэкспорта шаблона.
-
 ## Автомасштабирование текста по фиксированной ширине
 ![Expression for Text Layer Scaling to Fixed Border](_images/expression_text-scale_border.gif)
 
@@ -29,7 +25,7 @@ if (targetWidthScaled_px > borderWidth) {
 [targetWidthScaled_converted,targetWidthScaled_converted]
 ```
 
-## Автомасштабирование и выравнивание солида под конкретный слой
+## Выравнивание и масштабирование солида под конкретный слой
 !> TODO
 
 Скопируйте это выражение в свойство **`Scale`** слоя **TextLayer**:
@@ -58,3 +54,6 @@ W = Target.width;
  
 thisComp.layer("Text").transform.position+[W_Spacing,Target.top-H_Spacing]
 ```
+> **Примечание:** Вспомогательные переменные в выражениях можно привязать к значениям **элементов управления выражений** **(Expression Controls)**. 
+>
+> Эти элементы управления можно вывести в **Carrot Template Preview** в качестве новой переменной и редактировать её через **Carrot Web Playlist** без необходимости реэкспорта шаблона.
