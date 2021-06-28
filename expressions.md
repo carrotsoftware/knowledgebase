@@ -13,7 +13,7 @@
 
 ```javascript
 const targetLayer = thisComp.layer("TextLayer");
-const borderWidth_px = 600;
+const borderWidth = 600; // Ширина границы в пикселях
 
 let targetWidth = targetLayer.sourceRectAtTime().width;
 let scaleValue = 60; // Изначальный масштаб слоя
@@ -22,8 +22,8 @@ let scaleCoef = (scaleValue - 100) * .01;
 let targetWidthScaled_px = targetWidth + (targetWidth * scaleCoef);
 let targetWidthScaled_converted = scaleValue;
 
-if (targetWidthScaled_px > borderWidth_px) {
-		targetWidthScaled_converted = borderWidth_px / targetWidthScaled_px * scaleValue;
+if (targetWidthScaled_px > borderWidth) {
+		targetWidthScaled_converted = borderWidth / targetWidthScaled_px * scaleValue;
 } else {targetWidthScaled_converted};
 
 [targetWidthScaled_converted,targetWidthScaled_converted]
