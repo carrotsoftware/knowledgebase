@@ -8,8 +8,8 @@
 Скопируйте это выражение в свойство **`Scale`** слоя **TextLayer**:
 
 ```javascript
-const targetLayer = thisComp.layer("TextLayer");
-const borderWidth = 600; // Ширина границы в пикселях
+var targetLayer = thisComp.layer("TextLayer");
+var borderWidth = 600; // Ширина границы в пикселях
 
 var targetWidth = targetLayer.sourceRectAtTime().width;
 var scaleValue = 60; // Изначальный масштаб target слоя
@@ -33,23 +33,31 @@ if (targetWidthScaled_px > borderWidth) {
 ```javascript
 var targetLayer = thisComp.layer("TextLayer");
 var scaleValue = 60; // Изначальный масштаб target слоя
+
 var solidLayer = thisComp.layer("SolidPlate");
-var hBorder = 50; // Размер границы по горизонтали
+var hBorder = 100; // Размер границы по горизонтали
+var vBorder = 25; // Размер границы по вертикали
 
 var targetWidth = targetLayer.sourceRectAtTime().width;
+var targetHeight = targetLayer.sourceRectAtTime().height;
 var scaleCoef = (scaleValue - 100) * .01;
-var solidWidth = solidLayer.sourceRectAtTime().width;
 
-if (targetWidth == 0) {hBorder = 0};
+var solidWidth = solidLayer.sourceRectAtTime().width;
+var solidHeight = solidLayer.sourceRectAtTime().height;
+
+if (targetWidth == 0) {hBorder = 0, vBorder = 0};
 
 var targetWidthScaled_px = targetWidth + (targetWidth * scaleCoef);
-var targetWidthScaled_converted = (targetWidthScaled_px + hBorder) / solidWidth * 100;
+var targetHeightScaled_px = targetHeight + (targetHeight * scaleCoef);
 
-[targetWidthScaled_converted,100]
+var targetWidthScaled_converted = (targetWidthScaled_px + hBorder) / solidWidth * 100;
+var targetHeightScaled_converted = (targetHeightScaled_px + vBorder) / solidHeight * 100;
+
+[targetWidthScaled_converted,targetHeightScaled_converted]
 ```
 > **Важно:** Для работы этого шаблона свойство **`Anchor Point`** у **SolidPlate** должно совпадать с выравниванием текста.
 >
->**Например:** Если выравнивание текста выставлено по центру, то **`Anchor Point`** у **SolidPlate** тоже должен находиться в центре слоя.
+>**Например:** Если выравнивание текста выставлено по левому краю, то **`Anchor Point`** у **SolidPlate** должен находиться в левом углу слоя.
 
 > **Примечание:** Вспомогательные переменные в выражениях можно привязать к значениям **элементов управления выражений** **(Expression Controls)**. 
 >
