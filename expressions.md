@@ -11,12 +11,12 @@
 const targetLayer = thisComp.layer("TextLayer");
 const borderWidth = 600; // Ширина границы в пикселях
 
-let targetWidth = targetLayer.sourceRectAtTime().width;
-let scaleValue = 60; // Изначальный масштаб слоя
-let scaleCoef = (scaleValue - 100) * .01;
+var targetWidth = targetLayer.sourceRectAtTime().width;
+var scaleValue = 60; // Изначальный масштаб слоя
+var scaleCoef = (scaleValue - 100) * .01;
 
-let targetWidthScaled_px = targetWidth + (targetWidth * scaleCoef);
-let targetWidthScaled_converted = scaleValue;
+var targetWidthScaled_px = targetWidth + (targetWidth * scaleCoef);
+var targetWidthScaled_converted = scaleValue;
 
 if (targetWidthScaled_px > borderWidth) {
 		targetWidthScaled_converted = borderWidth / targetWidthScaled_px * scaleValue;
