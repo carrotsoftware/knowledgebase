@@ -25,8 +25,8 @@ if (targetWidthScaled_px > borderWidth) {
 [targetWidthScaled_converted,targetWidthScaled_converted]
 ```
 
-## Динамическая плашка под ширину текста из солида
-!> TODO
+## Динамическая плашка под размер текста из солида
+![Expression for Solid Layer Scaling to Text Size](_images/expression_solid-scale_text.gif)
 
 Скопируйте это выражение в свойство **`Scale`** слоя **TextLayer**:
 
