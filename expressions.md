@@ -2,7 +2,7 @@
 
 В этом разделе представлены часто используемые выражения при подготовке шаблонов для **Carrot Engine** в **Adobe After Effects**.
 
-# Автомасштабирование текста по фиксированной ширине
+## Автомасштабирование текста по фиксированной ширине
 ![Expression for Text Layer Scaling to Fixed Border](_images/expression_text-scale_border.gif)
 
 Скопируйте это выражение в свойство **`Scale`** слоя **TEXTLAYER**:
