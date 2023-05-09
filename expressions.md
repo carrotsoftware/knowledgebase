@@ -1,11 +1,13 @@
-﻿В этом разделе представлены часто используемые выражения при подготовке шаблонов для **Carrot Engine** в **Adobe After Effects**.
+﻿# База знаний
+
+В этом разделе представлены часто используемые выражения при подготовке шаблонов для **Carrot Engine** в **Adobe After Effects**.
 
 # Автомасштабирование текста по фиксированной ширине
 ![Expression for Text Layer Scaling to Fixed Border](_images/expression_text-scale_border.gif)
 
 Скопируйте это выражение в свойство **`Scale`** слоя **TEXTLAYER**:
 	
-## Без учёта свойства `Scale`:
+### Без учёта свойства `Scale`:
 ```javascript
 //=============================================================================
 // AUTORESIZE TEXT LAYER TO BOUNDS WITH SCALE PROPERTY (BASIC)
@@ -27,7 +29,7 @@ var OUT_Width = 100; // Setting default value if condition is false
 [OUT_Width,OUT_Width]
 ```
 
-## С учётом свойства `Scale`:
+### С учётом свойства `Scale`:
 ```javascript
 //=============================================================================
 // AUTORESIZE TEXT LAYER TO BOUNDS WITH SCALE PROPERTY (ADVANCED)
@@ -56,12 +58,12 @@ var OUT_Width = IN_Scale; // Setting default value if condition is false
 [OUT_Width,OUT_Width]
 ```
 
-# Динамическая плашка под размер текста из солида
+## Динамическая плашка под размер текста из солида
 ![Expression for Solid Layer Scaling to Text Size](_images/expression_solid-scale_text.gif)
 
 Скопируйте это выражение в свойство **`Scale`** слоя **SOLIDLAYER**:
 
-## Без учёта свойства `Scale`:
+### Без учёта свойства `Scale`:
 ```javascript
 //=============================================================================
 // DYNAMIC LAYER SCALING TO TEXT LENGTH (BASIC)
@@ -86,7 +88,7 @@ var OUT_Height = (IN_Height + IN_Margins[1]) / IN_SolidSize_original[1] * 100;
 
 [OUT_Width,OUT_Height]
 ```
-## С учётом свойства `Scale`:
+### С учётом свойства `Scale`:
 ```javascript
 //=============================================================================
 // DYNAMIC LAYER SCALING TO TEXT LENGTH (ADVANCED)

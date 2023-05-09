@@ -1,4 +1,6 @@
-﻿# Настройки ini-файла проекта для CARROT
+﻿# База знаний
+
+## Настройки ini-файла проекта для CARROT
 
 Настройки под CARROT в окне **Project Settings** можно указывать напрямую в `DefaultEngine.ini`:
 
@@ -21,12 +23,12 @@ DefaultGraphicsRHI=DefaultGraphicsRHI_DX12
 UnfocusedVolumeMultiplier=1.0
 ```
 
-# Полезные команды
+## Полезные команды
 
 >В консоли можно узнать значение переменной, указав вместо значения символ "`?`".
 <br>Например, `r.ShadowQuality ?` покажет заданное значение качества теней в проекте
 
-## GPU Profiling & Measuring Performance
+### GPU Profiling & Measuring Performance
 | | |
 -|-
 |`stat fps`| Displays FPS counter.
@@ -38,14 +40,14 @@ UnfocusedVolumeMultiplier=1.0
 |`stat NiagaraSystems`| Frame information about systems.
 |`t.maxFPS`| Limits FPS (default = `0`).
 
-## Shadows
+### Shadows
 | | |
 -|-
 |`r.ShadowQuality`| Defines the shadow method which allows to adjust for quality or performance (max = `5`).
 |`r.Shadow.MaxResolution`| Max square dimensions (in texels) allowed for rendering shadow depths. Range 4 to hardware limit. (max = `2048`)
 
-## Antialiasing & Upsampling
-### Temporal Anti-Aliasing
+### Antialiasing & Upsampling
+#### Temporal Anti-Aliasing
 | | |
 -|-
 |`r.TemporalAA.Upsampling`| Whether to do primary screen percentage with temporal AA or not.
@@ -54,7 +56,7 @@ UnfocusedVolumeMultiplier=1.0
 |`r.TemporalAASamples`| Number of jittered positions for temporal AA (`4`, default = `8`, `16`, `32`, `64`)
 |`r.TemporalAAFilterSize`| Size of the filter kernel. (`1.0` = smoother, `0.0` = sharper but aliased).
 
-## Другое
+### Другое
 | | |
 -|-
 |`r.ScreenPercentage`| Render resolution scaling (default = `100`).
