@@ -78,3 +78,15 @@ r.Streaming.PoolSize=16000
 [SystemSettings]
 r.GlobalIllumination.ExperimentalPlugin=1
 ```
+
+## Troubleshooting
+### Рендер в UE5 происходит в меньшем разрешение если запускаться через **Play In Editor** (PIE)
+Для того, чтобы рендерить в полном разрешении через редактор, нужно указать следующую настройку в **Editor Preferences**:
+
+`General - Performance` > `Viewport Resolution` > `Override project's default screen percetage mode for realtime editor viewports` - Manual
+
+![Expression for Text Layer Scaling to Fixed Border](_images/fixviewportPIEoverride.png)
+
+Можно также прописать консольную команду:
+
+```r.Editor.Viewport.OverridePIEScreenPercentage 0```
