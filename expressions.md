@@ -78,7 +78,7 @@ var IN_SolidSize_original = [512,512];
 var IN_Width = IN_TextLayer.sourceRectAtTime().width;
 var IN_Height = IN_TextLayer.sourceRectAtTime().height;
 
-	if (IN_Width_unscaled == 0) // Making solid layer completely hidden when text layer is empty, otherwise if margins were set > 0 they would be visible.
+	if (IN_Width == 0) // Making solid layer completely hidden when text layer is empty, otherwise if margins were set > 0 they would be visible.
 	{
 		IN_Margins = [0,0];
 	}
