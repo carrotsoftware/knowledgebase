@@ -61,14 +61,10 @@ var OUT_Width = IN_Scale; // Setting default value if condition is false
 ## Динамическая плашка под размер текста из солида
 ![Expression for Solid Layer Scaling to Text Size](_images/expression_solid-scale_text.gif)
 
-Скопируйте это выражение в свойство **`Scale`** слоя **SOLIDLAYER**:
+> Скопируйте это выражение в свойство **`Scale`** слоя **SOLIDLAYER**:
 
-### Без учёта свойства `Scale`:
+### Без учёта свойства `Scale` текста:
 ```javascript
-//=============================================================================
-// DYNAMIC LAYER SCALING TO TEXT LENGTH (BASIC)
-//=============================================================================
-
 var IN_TextLayer = thisComp.layer("TEXTLAYER");
 var IN_SolidLayer = thisComp.layer("SOLIDLAYER");
 var IN_Margins = [0,25]; // Margins to make space between solid edges and text.
@@ -88,12 +84,43 @@ var OUT_Height = (IN_Height + IN_Margins[1]) / IN_SolidSize_original[1] * 100;
 
 [OUT_Width,OUT_Height]
 ```
-### С учётом свойства `Scale`:
-```javascript
-//=============================================================================
-// DYNAMIC LAYER SCALING TO TEXT LENGTH (ADVANCED)
-//=============================================================================
 
+#### Версия для Carrot Scripts в Template Preview
+
+> Скопируйте эти выражение в поля `Startup` и `Set State` окна **Scripts** в **Template Preview**.
+
+> Измените ссылку на нужный вам слой у переменных `InTextLayer` и `inSolidLayer`:
+
+```js
+// STARTUP
+var inTextLayer = thisComp.layer(1); // Layer reference with index (Example: layer(1) or layer name (Example: layer("Name"))
+var inSolidLayer = thisComp.layer(2); // Layer reference with index (Example: layer(1) or layer name (Example: layer("Name"))
+
+var inSizeSolid = [512,512]; // We manually input solid layer width and height, because this is static value that was set during layer creation. It remains unchanged.
+var inMargins = [0,25]; // Margins to make space between solid edges and text.
+
+function FitLayerScaleToText (value, margin, sizeSolid) {
+    var outScale;
+    if (value == 0) // Making solid layer completely hidden when text layer is empty, otherwise if margins were set > 0 they would be visible.
+    {
+        margin = 0;
+    }
+
+    outScale = (value + margin) / sizeSolid * 100;
+    return outScale;
+}
+```
+
+```js
+// SET STATE
+var inWidth = inTextLayer.sourceRectAtTime().width;
+var inHeight = inTextLayer.sourceRectAtTime().height;
+
+inSolidLayer.transform.scale = [FitLayerScaleToText(inWidth, inMargins[0], inSizeSolid[0]), FitLayerScaleToText(inHeight, inMargins[1], inSizeSolid[1]), 0];
+```
+
+### С учётом свойства `Scale` текста:
+```javascript
 var IN_TextLayer = thisComp.layer("TEXTLAYER");
 var IN_SolidLayer = thisComp.layer("SOLIDLAYER");
 var IN_Margins = [100,25]; // Margins to make space between solid edges and text.
